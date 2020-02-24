@@ -1,38 +1,396 @@
-.App {
+@font-face {font-family: "MuseoSansW01-900"; src: 
+  url("//db.onlinewebfonts.com/t/7463bc8d2f1ad1feebddbb2c9e084f80.eot"); 
+  src: url("//db.onlinewebfonts.com/t/7463bc8d2f1ad1feebddbb2c9e084f80.eot?#iefix") format("embedded-opentype"), 
+  url("//db.onlinewebfonts.com/t/7463bc8d2f1ad1feebddbb2c9e084f80.woff2") format("woff2"), 
+  url("//db.onlinewebfonts.com/t/7463bc8d2f1ad1feebddbb2c9e084f80.woff") format("woff"), 
+  url("//db.onlinewebfonts.com/t/7463bc8d2f1ad1feebddbb2c9e084f80.ttf") format("truetype"), 
+  url("//db.onlinewebfonts.com/t/7463bc8d2f1ad1feebddbb2c9e084f80.svg#MuseoSansW01-900") format("svg"); 
+}
+
+@font-face {font-family: "Museo Sans"; 
+  src: url("//db.onlinewebfonts.com/t/62c0135163427c652ae397f327f85010.eot"); 
+  src: url("//db.onlinewebfonts.com/t/62c0135163427c652ae397f327f85010.eot?#iefix") format("embedded-opentype"), 
+  url("//db.onlinewebfonts.com/t/62c0135163427c652ae397f327f85010.woff2") format("woff2"), 
+  url("//db.onlinewebfonts.com/t/62c0135163427c652ae397f327f85010.woff") format("woff"), 
+  url("//db.onlinewebfonts.com/t/62c0135163427c652ae397f327f85010.ttf") format("truetype"), 
+  url("//db.onlinewebfonts.com/t/62c0135163427c652ae397f327f85010.svg#Museo Sans") format("svg"); 
+}
+
+@font-face {font-family: "Museo Sans Rounded 700"; 
+  src: url("//db.onlinewebfonts.com/t/470ad2519927fa4eedb66fdcd82af115.eot"); 
+  src: url("//db.onlinewebfonts.com/t/470ad2519927fa4eedb66fdcd82af115.eot?#iefix") format("embedded-opentype"), 
+  url("//db.onlinewebfonts.com/t/470ad2519927fa4eedb66fdcd82af115.woff2") format("woff2"), 
+  url("//db.onlinewebfonts.com/t/470ad2519927fa4eedb66fdcd82af115.woff") format("woff"), 
+  url("//db.onlinewebfonts.com/t/470ad2519927fa4eedb66fdcd82af115.ttf") format("truetype"), 
+  url("//db.onlinewebfonts.com/t/470ad2519927fa4eedb66fdcd82af115.svg#Museo Sans Rounded 700") format("svg"); 
+}
+
+@font-face {
+  font-family: 'fontello';
+  src: url('/icon/fontello.eot?91312110');
+  src: url('/icon/fontello.eot?91312110#iefix') format('embedded-opentype'),
+       url('/icon/fontello.woff2?91312110') format('woff2'),
+       url('/icon/fontello.woff?91312110') format('woff'),
+       url('/icon/fontello.ttf?91312110') format('truetype'),
+       url('/icon/fontello.svg?91312110#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
   text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-leaf:before { content: '\e800'; } /* '' */
+.icon-clock:before { content: '\e801'; } /* '' */
+.icon-attention:before { content: '\e802'; } /* '' */
+.icon-search:before { content: '\e803'; } /* '' */
+.icon-cancel:before { content: '\e804'; } /* '' */
+.icon-flight:before { content: '\e805'; } /* '' */
+.icon-home:before { content: '\e806'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-right-circled:before { content: '\f0a9'; } /* '' */
+.icon-angle-circled-right:before { content: '\f138'; } /* '' */
+.icon-dollar:before { content: '\f155'; } /* '' */
+.icon-tree:before { content: '\f1bb'; } /* '' */
+.icon-chevron-right-open:before { content: '\e807'; width: 0.1px; height: 0.1px; } /* '' */
+
+.chevron-card-footer {
+  font-size: 10px;
+  color: #00A2C7;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chevron-button {
+  padding-left: 10px;
+  width: 5px;
+  height: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-normal-desc-icon{
+  position: relative;
+  top: -2px;
+  border-radius: 100%;
+  color: white;
+  background-color: #031839;
+  font-size: 10px;
+  padding: 0.2em 0.1em;
+  margin-right: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.right-card-link {
+  font-size: 16px;
+}
+
+body {
+  background-color: #FAFAFA;
+}
+
+
+.Main-content{
+  padding-top: 90px;
+  margin-left: 127px;
+  margin-right: 127px;
+}
+
+.Header-content{
+  
+}
+
+.Normal-link {
+  font-family: "MuseoSansW01-900";
+  font-size: 13px;
+  line-height: 19px;
+  color: #0043B1;
+  text-decoration: none;
+}
+
+h1{
+  font-family: "MuseoSansW01-900";
+  font-size: 60px;
+  line-height: 72px;
+}
+
+h2{
+  font-family: "MuseoSansW01-900";
+  font-size: 30px;
+  line-height: 34px;
+}
+
+h5{
+  font-family: "MuseoSansW01-900";
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.Body-text1{
+  font-family: "Museo Sans";
+  font-size: 21px;
+  line-height: 30px;
+}
+.Body-text2{
+  font-family: "Museo Sans";
+  font-size: 16px;
+  line-height: 24px;
+}
+.Body-text3{
+  font-family: "Museo Sans Rounded 700";
+  font-size: 14px;
+  line-height: 22px;;
+}
+
+.Header-desc {
+  width: 80%;
+}
+
+.Header-link {
+    font-weight: 900;
+    color: #0043B1;
+    text-decoration: none;
+}
+.Header-link:hover {
+  font-weight: 900;
+  color: #031839;
+  text-decoration: none;
+}
+
+.Card-content{
+  margin-top: 38px;
+  margin-bottom: 38px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Card-link {
+  background-color: white;
+  width: 338px;
+  height: 480px;
+  box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.1) ;
+  margin-right: 40px;
+  margin-bottom: 32px;
+}
+
+.Card-link-title {
+  padding-top: 7px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.Card-link-desc {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.Card-link-linktext {
+  font-family: "MuseoSansW01-900";
+  font-size: 13px;
+  line-height: 19px;
+  color: #0043B1;
+  text-decoration: none;
+}
+
+.Card-link:hover {
+  background-color: #0043B1;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Card-link:hover .Card-link-linktext {
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Card-normal {
+  background-color: white;
+  width: 338px;
+  height: 480px;
+  box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.1) ;
+  margin-right: 40px;
+  margin-bottom: 32px;
 }
+
+.Card-normal-desc {
+  padding-top: 4px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.Card-normal-image {
+  height: 200px;
+  width: 338px;
+  margin-bottom: 20px;
+}
+
+.Card-image-source{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Card-normal-title {
+
+  font-family: "MuseoSansW01-900";
+  font-size: 15px;
+  font-weight: bold;
+  color: #031839;
+}
+
+.Card-normal-subtitle {
+  padding-top: 6px;
+  font-family: "Museo Sans Rounded 700";
+  font-size: 15px;
+  color: #031839;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+.Card-normal-text {
+  font-family: "Museo Sans";
+  font-size: 13px;
+  color: #031839;
+  line-height: 24px;
+}
+
+.Card-normal-bar{
+  margin-top: 13px;
+}
+
+.Bar-container {
+  border-radius: 30px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.1);  
+}
+
+.Bar {
+  float: left;
+  width: 85%;
+  height: 5px;
+  border-radius: 30px;
+  background-color: #5DAF50;  
+}
+
+.bar-icon {
+  position: relative;
+  left: -16px;
+  top: -12px;
+  border-radius: 10em;
+  color: white;
+  background-color: #175728;
+  font-size: 8px;
+  padding: 0.3em 0.3em;
+}
+
+.Card-normal-footer {
+  margin-top: 20px;
+  height: 36px;
+  border-top: 1px solid rgba(3, 24, 57, 0.1);
+  padding-top: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+  
+}
+
+.Card-normal-footer:hover {
+  background-color: #0043B1;
+  color: white;
+}
+
+.Card-normal-footer:hover .chevron-card-footer {
+  color: white; 
+}
+
+.Modules-content{
+  margin-top: 26px;
+  margin-bottom: 34px;
+}
+.Module-body {
+  outline: 1px solid rgba(3, 24, 57, 0.1);
+  height: 222px;
+  padding-left: 65px;
+  padding-right: 65px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.Module-image {
+  height: 222px;
+  width: 378px;
+  float: left;
+  margin-right: 100px;
+  overflow: hidden;
+}
+
+.Module-image-source{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Module-desc {
+  width: 954px;
+  margin-top: -15px;
+}
+
+.Module-desc-title {
+  margin-bottom: -23px;
+}
+
+.Module-desc-text {
+  margin-bottom: 26px;
+}
+
+.Module-desc-button-content {
+  height: 50px;
+  text-align: center;
+  padding-left:30px;
+  padding-right:30px;
+  background-color: #003790;
+  font-family: "MuseoSansW01-900";
+  font-size: 14px;
+  line-height: 26px;
+  color: #ffffff;
+  outline: none;
+  border: 0px;
+}
+
+.Module-desc-button-content:hover {
+  background-color: #031839;
+}
+
+.Button-content-arrow {
+  width: 5px;
+  height: 8px;
+}
+
+
+
+
