@@ -1,0 +1,178 @@
+body {
+    background-color: #FFFFFF;
+    color: #031839;
+}
+
+.Prepaid-header {
+    padding-top: 5vw;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    padding-bottom: 3vw;
+    background-color: #FAFAFA;
+    border-bottom: 5px solid #031839;
+}
+
+.Prepaid-body {
+    padding-top: 1vw;
+    padding-left: 7vw;
+    padding-right: 7vw;
+    padding-bottom: 2vw;
+    display: grid;
+    grid-gap: 8rem;
+    grid-template-columns: 2fr 1fr;
+}
+
+.Prepaid-body-left{
+
+}
+
+.Prepaid-body-right{
+    padding: 1vw;
+    padding-top: 5vw;
+}
+
+.Prepaid-body-reserve-button {
+    text-align: center;
+}
+
+.Prepaid-body-button-content{
+    height: 50px;
+    text-align: center;
+    padding-left:30px;
+    padding-right:30px;
+    background-color: #003790;
+    font-family: "MuseoSansW01-900";
+    font-size: 14px;
+    line-height: 26px;
+    color: #ffffff;
+    outline: none;
+    border: 0px;
+}
+
+.Prepaid-body-button-content:hover {
+    background-color: #031839;
+  }
+
+.Card-prepaid {
+    margin: 0 auto;
+    width: 280px;
+    height: 420px;
+    box-shadow: 0px 0px 10px 0.1px rgba(4, 47, 115, 0.4) ;
+}
+
+
+.Card-prepaid-image{
+    height: 185px;
+    padding-top: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.Card-prepaid-image-source {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Card-prepaid-text {
+    height: 170px;
+    padding-top: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin: 0 auto;
+}
+
+.Card-prepaid-text-desc{
+    margin-bottom: 10px;
+}
+
+.Card-prepaid-text-checklist{
+    padding-left: 21px;
+}
+
+.Card-prepaid-footer {
+    width: 100%;
+    text-align: center;
+}
+
+.Link-to{
+    font-weight: 900;
+    color: #0043B1;
+    text-decoration: none;
+}
+
+.Link-to:hover {
+    font-weight: 900;
+    color: #042F73;
+    text-decoration: none;
+}
+
+.Blue-icon {
+    color: #0043B1;
+}
+
+.Blue-dark-icon {
+    color: #031839;
+}
+
+.White-icon {
+    color: #FFFFFF;
+}
+
+.Back-icon {
+    color: #00A2C7;
+}
+
+
+.modal-prepaid-closed {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+.modal-prepaid-showed {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+
+.Modal-prepaid-desc-text{
+    padding-top: 20px;
+  }
+
+.modal-prepaid-content {
+    background-color: #fefefe;
+    margin: 90px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 3px solid #031839;
+    width: 65%; /* Could be more or less, depending on screen size */
+}
+
+.Modal-prepaid-desc-section-title {
+    display: inline-block;
+}
+.Modal-prepaid-desc-section-subtitle {
+    margin-top: -26px;
+}
+
+@media screen and (max-width: 850px) {
+    .Prepaid-body {
+        display: block;
+        
+    }
+}

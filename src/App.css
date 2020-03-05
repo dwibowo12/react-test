@@ -120,8 +120,8 @@ body {
 
 .Main-content{
   padding-top: 90px;
-  margin-left: 127px;
-  margin-right: 127px;
+  margin-left: 9vw;
+  margin-right: 9vw;
 }
 
 .Header-content{
@@ -148,9 +148,21 @@ h2{
   line-height: 34px;
 }
 
+h3 {
+  font-family: "MuseoSansW01-900";
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h4 {
+  font-family: "MuseoSansW01-900";
+  font-size: 21px;
+  line-height: 26px;
+}
+
 h5{
   font-family: "MuseoSansW01-900";
-  font-size: 18px;
+  font-size: 15px;
   line-height: 24px;
 }
 
@@ -188,28 +200,31 @@ h5{
 .Card-content{
   margin-top: 38px;
   margin-bottom: 38px;
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
 }
+
+
 
 .Card-link {
   background-color: white;
-  width: 338px;
+  width: 100%;
   height: 480px;
   box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.1) ;
-  margin-right: 40px;
-  margin-bottom: 32px;
 }
 
 .Card-link-title {
   padding-top: 7px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
 .Card-link-desc {
   padding-left: 24px;
   padding-right: 24px;
+  height: 260px;
 }
 
 .Card-link-linktext {
@@ -229,24 +244,56 @@ h5{
   color: white;
 }
 
+.Card-link-bar{
+  padding-left: 35px;
+  margin-top: 13px;
+  padding-right: 35px;
+}
+
+.Link-bar-container {
+  border-radius: 30px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  background: rgb(255,95,95);
+  background: linear-gradient(87deg, rgba(255,95,95,1) 0%, rgba(255,246,115,1) 50%, rgba(172,255,92,1) 100%);
+}
+
+.Link-bar {
+  height: 100%;
+  border-radius: 30px;
+}
+
+.link-bar-icon {
+  position: relative;
+  left: -16px;
+  top: -12px;
+  border-radius: 50px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  background-color: #031839;
+  padding: 0.3em 0.3em;
+}
+
 .Card-normal {
   background-color: white;
-  width: 338px;
+  width: 100%;
   height: 480px;
   box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.1) ;
-  margin-right: 40px;
-  margin-bottom: 32px;
 }
 
 .Card-normal-desc {
   padding-top: 4px;
   padding-left: 32px;
   padding-right: 32px;
+  height: 204px;
 }
 
 .Card-normal-image {
   height: 200px;
-  width: 338px;
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -282,21 +329,53 @@ h5{
 
 .Card-normal-bar{
   margin-top: 13px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .Bar-container {
   border-radius: 30px;
   height: 5px;
-  background: rgba(0, 0, 0, 0.1);  
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: -webkit-box;
 }
 
 .Bar {
-  float: left;
   width: 85%;
   height: 5px;
   border-radius: 30px;
   background-color: #5DAF50;  
 }
+
+.Bar.b100 {
+  background-color: #39a33e;
+}
+
+.Bar.b85 {
+  background-color: #94c746;
+}
+
+.Bar.b65 {
+  background-color: #9fa339;
+}
+
+.Bar.b50 {
+  background-color: #ffce5c;
+}
+
+.Bar.b30 {
+  background-color: #ff834a;
+}
+
+.Bar.b15{
+  background-color: #f74a3e;
+}
+
+.Card-normal.outlined {
+  box-shadow: 0px 0px 10px 6px rgba(34, 99, 37, 0.8) ;
+}
+
 
 .bar-icon {
   position: relative;
@@ -309,14 +388,50 @@ h5{
   padding: 0.3em 0.3em;
 }
 
+.modal-desc {
+  color: red;
+  position: relative;
+  opacity:1;
+}
+
+.modal-desc-hidden { 
+  color: red;
+  opacity:0;
+  transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s; 
+}
+
+.bar-icon.b100 {
+  background-color: #226325;
+}
+
+.bar-icon.b85 {
+  background-color: #61852a;
+}
+
+.bar-icon.b65 {
+  background-color: #696b25;
+}
+
+.bar-icon.b50 {
+  background-color: #9e7f37;
+}
+
+.bar-icon.b30 {
+  background-color: #ad5932;
+}
+
+.bar-icon.b15{
+  background-color: #9c2f27;
+}
+
+
 .Card-normal-footer {
-  margin-top: 20px;
   height: 36px;
   border-top: 1px solid rgba(3, 24, 57, 0.1);
   padding-top: 16px;
   padding-left: 32px;
   padding-right: 32px;
-  
+  bottom: 0;
 }
 
 .Card-normal-footer:hover {
@@ -328,26 +443,65 @@ h5{
   color: white; 
 }
 
-.Modules-content{
-  margin-top: 26px;
-  margin-bottom: 34px;
+.tooltiptext {
+  visibility: hidden;
+  font-family: "Museo Sans";
+  font-size: 13px;
+  width: 248px;
+  background-color: rgba(0,0,0,0.9);
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 0px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -140px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
 }
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.9) transparent transparent transparent;
+}
+
+.Modules-container{
+ 
+}
+
 .Module-body {
   outline: 1px solid rgba(3, 24, 57, 0.1);
-  height: 222px;
+  height: 100%;
+  float: left;
   padding-left: 65px;
   padding-right: 65px;
   padding-top: 30px;
   padding-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .Module-image {
   height: 222px;
-  width: 378px;
+  width: 39%;
   float: left;
-  margin-right: 100px;
+  margin-right: 6vw;
   overflow: hidden;
 }
+
 
 .Module-image-source{
   width: 100%;
@@ -356,7 +510,8 @@ h5{
 }
 
 .Module-desc {
-  width: 954px;
+  float: left;
+  width: 49%;
   margin-top: -15px;
 }
 
@@ -392,5 +547,169 @@ h5{
 }
 
 
+.modal-closed {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-showed {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+.Modal-image-container {
+  width: 100%;
+  height: 400px;
+}
+
+.Modal-desc-text{
+  padding-top: 20px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 90px auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-text-content{
+  position: relative;
+  top: -47px;
+}
+
+.modal-text-content-price {
+  float: left;
+}
+
+.modal-showed.Body-text2{
+  position: relative;
+  top: -30px;
+  background-color: #fefefe;
+}
+
+.Notfound-container {
+  width: 100%;
+  position: fixed;
+  top: 30%;
+  height: 800px;
+  text-align: center;
+}
+
+.Notfound-link{
+    font-weight: 900;
+    color: #0043B1;
+    text-decoration: none;
+}
+
+.Notfound-link:hover{
+  font-weight: 900;
+  color: #031839;
+  text-decoration: none;
+}
 
 
+@media screen and (max-width: 1340px) {
+  .Card-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  
+}
+
+@media screen and (max-width: 1025px) {
+
+}
+
+@media screen and (max-width: 1140px) {
+  .Modal-image-container {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+
+
+@media screen and (max-width: 900px) {
+  .Card-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+
+  .Modal-image-container {
+    width: 100%;
+    height: 230px;
+  }
+}
+
+@media screen and (max-width: 810px){
+  .Module-image {
+    width: 100%
+  }
+  .Module-desc {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 670px){
+  .Modal-image-container {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .Modal-image-container {
+    width: 100%;
+    height: 140px;
+  }
+
+  .modal-text-content-price {
+    float: none;
+  }
+  
+}
+
+@media screen and (min-width: 1660px) {
+  .Card-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .Modal-image-container {
+    width: 100%;
+    height: 520px;
+  }
+}
