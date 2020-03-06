@@ -1,0 +1,145 @@
+.Routedesc-header{
+    padding-top: 120px;
+    padding-left: 9vw;
+    padding-right: 9vw;
+    padding-bottom: 4vw;
+    background-color: #FAFAFA;
+    border-bottom: 5px solid #031839;
+}
+
+.Routedesc-header-title{
+    margin-bottom: -20px;
+}
+
+.Routedesc-header-subtitle {
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.Button-blue {
+    height: 50px;
+    text-align: center;
+    padding-left:30px;
+    padding-right:30px;
+    background-color: #003790;
+    font-family: "MuseoSansW01-900";
+    font-size: 14px;
+    line-height: 26px;
+    color: #ffffff;
+    outline: none;
+    border: 0px;
+}
+
+.Button-blue:hover {
+    background-color: #031839;
+}
+
+.Routedesc-subtitle {
+    
+}
+
+.Routedesc-body{
+    padding-top: 5vw;
+    padding-left: 9vw;
+    padding-right: 9vw;
+    padding-bottom: 5vw;
+    background-color: #FFFFFF;
+    display: grid;
+    grid-gap: 8rem;
+    grid-template-columns: 3fr 1fr;
+}
+
+.Routedesc-body-about{
+    margin-bottom: 100px;
+}
+
+.Location-item-title {
+    color: #003790;
+    font-weight: bolder;
+    margin-bottom: -10px;
+}
+
+.Location-item-subtitle {
+    margin-bottom: -10px;
+}
+
+.Routedesc-body-right {
+    margin-top: -150px;
+}
+
+.Routedesc-body-card {
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    padding: 30px;
+    width: 280px;
+    height: 370px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) ;
+}
+
+.Routedesc-body-card-image {
+    height: 210px;
+    margin-bottom: 15px;
+}
+
+.Routedesc-body-card-image-source {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.Routedesc-body-card-subtitle {
+    height: 110px;
+    margin-bottom: 10px;
+}
+
+.Routedesc-location-item{
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 900px){
+    .Routedesc-header{
+        height: 430px;
+    }
+
+    .Routedesc-header-subtitle {
+        width: 100%;
+    }
+
+    .Routedesc-button-park-reserve {
+        text-align: center;
+    }
+
+    .Routedesc-body {
+        display:flex;
+        flex-direction: column-reverse;
+    }
+
+    .Routedesc-body-right {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 743px) {
+    .Routedesc-header{
+        height: 470px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Routedesc-header{
+        height: 520px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .Routedesc-header{
+        height: 550px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Routedesc-header{
+        height: 580px;
+    }
+}

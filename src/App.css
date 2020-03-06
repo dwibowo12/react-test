@@ -641,6 +641,11 @@ h5{
   text-decoration: none;
 }
 
+.Footer-link {
+  text-decoration: none;
+  color: #031839;
+}
+
 
 @media screen and (max-width: 1340px) {
   .Card-content {

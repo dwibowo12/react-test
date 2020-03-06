@@ -55,13 +55,22 @@ export function FormReserve() {
             
             <div className="Form-header">
                 <Link className="Link-to" to="/reserve">
-                    <p className="Body-text2"><FontAwesomeIcon icon={faArrowLeft} /> &nbsp;Back</p>
+                    <span className="Body-text2"><FontAwesomeIcon icon={faArrowLeft} /> &nbsp;Back</span>
                 </Link>
                 <div className="Form-header-title">
                     <h1>Pre-paid parking reservation</h1>
                 </div>
-                <div className="Body-text1">
-                    <b>Fill up form below to pre-paid parking reserve &nbsp;<FontAwesomeIcon icon={faQuestionCircle} /></b>
+                <div className="Form-header-subtitle Body-text1">
+                    <b>
+                        <div className="Form-header-subtitle-text">
+                            Fill up form below to pre-paid parking reserve &nbsp;
+                        </div>
+                        <div className="Form-header-question">
+                            <FontAwesomeIcon icon={faQuestionCircle} />
+                            <span className="Form-header-tooltiptext">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum iaculis arcu sed facilisis. Vestibulum a risus ac lacus vulputate congue. Morbi ullamcorper tristique mauris eget posuere.</span>
+                        </div>
+                    </b>
+                    
                 </div>
             </div>
             <div className="Form-content">

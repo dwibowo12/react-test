@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import { BarMeter } from './BarMeter';
 
 export function CardNormal({ title, subtitle, logo, price, duration, barmeter, footerText }) {
     
@@ -40,6 +42,7 @@ export function CardNormal({ title, subtitle, logo, price, duration, barmeter, f
     function handleOpenModal(){
         setShowModal(true);
         setOutlined(true);
+        document.body.style.overflow = 'hidden';
         window.addEventListener('keydown', onKeyPressed);
     }
 
@@ -47,6 +50,7 @@ export function CardNormal({ title, subtitle, logo, price, duration, barmeter, f
         if(e.keyCode === 27){
             setShowModal(false);
             setOutlined(false);
+            document.body.style.overflow = 'unset';
             window.removeEventListener('keydown', onKeyPressed);
         }
         
@@ -55,36 +59,59 @@ export function CardNormal({ title, subtitle, logo, price, duration, barmeter, f
     function handleCloseModal(){
         setShowModal(false);
         setOutlined(false);
+        document.body.style.overflow = 'unset';
         window.removeEventListener('keydown', onKeyPressed);
     }
 
   return (
     <div>
-        <div className={outlined ? 'Card-normal outlined' : 'Card-normal'} onClick={handleOpenModal}>
-            <div className="Card-normal-image">
+        <div className={outlined ? 'Card-normal outlined' : 'Card-normal'}>
+            <div className="Card-normal-image" onClick={handleOpenModal}>
                 <img className="Card-image-source" src={process.env.PUBLIC_URL + logo } />
             </div>
-            <div className="Card-normal-desc">
+            <div className="Card-normal-desc" onClick={handleOpenModal}>
                 <div className="Card-normal-title">{title}</div>
                 <div className="Card-normal-subtitle">{subtitle}</div>
                 <div className="Card-normal-text">
                     <div className="Card-normal-text-content"><span className="icon-dollar card-normal-desc-icon"/>{price}</div>
                     <div className="Card-normal-text-content"><span className="icon-clock card-normal-desc-icon"/>{duration}</div>
                 </div>
-                <div className="Card-normal-bar">    
-                    <div className="Bar-container">
-                        <div className={className} style={{width: `${barmeter}%`}}></div>
-                        <span className={"tooltip icon-leaf bar-icon " + leafClass} >
-                            <span className="tooltiptext">{title} is the greenest option for travelling to and from the airport!</span>
-                        </span>    
-                    </div>
-                </div>
+                <BarMeter carbonMeter={barmeter} isWithTooltip={true} routeName={title} onClick={handleOpenModal} />
             </div>
-            <div className="Card-normal-footer" onClick={handleOpenModal}>
+            <Link className="Footer-link" to={{ 
+                pathname: '/route', 
+                state: { 
+                    routeName: title,
+                    pictureFile: logo,
+                    routeList: [
+                        {
+                            locationName: "Back Bay",
+                            locationDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis, urna vitae accumsan ultrices, arcu metus fermentum purus, semper ullamcorper eros mauris et sapien.",
+                            isHaveDrivingDirection: false,
+                            phoneNumber: "123-456-7890"
+                        },
+                        {
+                            locationName: "Braintree",
+                            locationDesc: "Nam quis ante a lectus ullamcorper vestibulum id ut eros. Suspendisse potenti.",
+                            isHaveDrivingDirection: true,
+                            phoneNumber: "123-456-7890"
+                        },
+                        {
+                            locationName: "Mayroad",
+                            locationDesc: "Nam quis ante a lectus ullamcorper vestibulum id ut eros. Suspendisse potenti.",
+                            isHaveDrivingDirection: true,
+                            phoneNumber: "098-765-4321"
+                        },
+                    ],
+                    carbonMeter: barmeter
+                } 
+            }}>
+            <div className="Card-normal-footer">
                 <div className="Body-text3">
                     {footerText} <span className="icon-chevron-right-open chevron-card-footer" />
                 </div>
             </div>
+            </Link>
         </div>
         <div id="myModal" className={showModal ? 'modal-showed' : 'modal-closed'} >
             <div className="modal-content" >

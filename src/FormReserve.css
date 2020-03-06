@@ -7,6 +7,42 @@
     border-bottom: 5px solid #031839;
 }
 
+.Form-header-subtitle {
+    
+}
+
+.Form-header-subtitle-text {
+    position: relative;
+    float: left;
+}
+
+.Form-header-question {
+}
+
+.Form-header-tooltiptext {
+    visibility: hidden;
+    font-family: "Museo Sans";
+    font-size: 13px;
+    width: 288px;
+    background-color: rgba(0,0,0,0.9);
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 0px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    margin-left: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+  }
+  
+.Form-header-question:hover .Form-header-tooltiptext {
+    visibility: visible;
+}
+
+
 .Form-content {
     padding-top: 2vw;
     padding-left: 7vw;
@@ -111,4 +147,30 @@
 }
 .Modal-form-desc-section-subtitle {
     margin-top: -26px;
+}
+
+@media screen and (max-width: 890px) {
+    .Form-header-tooltiptext {
+        margin-top: 35px;
+        margin-left: -300px;
+    }
+}
+
+@media screen and (max-width: 574px) {
+    .Form-header-tooltiptext {
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .Input-group .Input-text {
+        width: 310px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .Form-header-tooltiptext {
+        width: 238px;
+    }
 }

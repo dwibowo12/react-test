@@ -112,18 +112,21 @@ export function Home(){
       
       function handleShowModal() {
         setShowModal(true);
+        document.body.style.overflow = 'hidden';
         window.addEventListener('keydown', onKeyPressed);
       }
       
       function onKeyPressed(e){
         if(e.keyCode === 27){
           setShowModal(false);
+          document.body.style.overflow = 'unset';
           window.removeEventListener('keydown', onKeyPressed);
         }
       }
       
       function handleCloseModal(){
         setShowModal(false);
+        document.body.style.overflow = 'unset';
         window.removeEventListener('keydown', onKeyPressed);
       }
       
