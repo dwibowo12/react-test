@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../RouteDesc.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +10,160 @@ import { BarMeter } from './BarMeter';
 export function RouteDesc(props){
     const carbonMeter = props.location.state.carbonMeter;
     const rowLen = props.location.state.routeList.length;
+
+    const [showModal, setShowModal] = useState(false);
+    const [showModalResult, setShowModalResult] = useState(false);
+
+    const [globalName, setGlobalName] = useState("");
+    const [globalEmail, setGlobalEmail] = useState("");
+    
+
+    function handleCloseModal(){
+        setShowModal(false);
+        if(showModalResult) {
+            setShowModalResult(false);
+        }
+        document.body.style.overflow = 'unset';
+    }
+
+
+    function handleOpenModal(e){
+        e.preventDefault();
+        document.body.style.overflow = 'hidden';
+        setShowModal(true);
+        window.addEventListener('keydown', onKeyPressed);
+    }
+
+    function onKeyPressed(e){
+        if(e.keyCode === 27){
+            setShowModal(false);
+            window.removeEventListener('keydown', onKeyPressed);
+            document.body.style.overflow = 'unset';
+        }
+    }
+
+    function onKeyPressedResult(e) {
+        if(e.keyCode === 27){
+            setShowModalResult(false);
+            window.removeEventListener('keydown', onKeyPressedResult);
+            document.body.style.overflow = 'unset';
+        }
+    }
+
+    
+    const locationRef = React.createRef();
+    function handleLocationClick(){
+        locationRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+
+    function ModalForm(){
+
+        return (
+            <div className='modal-form'>
+                <div className="modal-form-content" >
+                    <span className="close" onClick={handleCloseModal}>&times;</span>
+                    <div className="Modal-form-desc-text">
+                        <div className="Modal-form-desc-title">
+                            <h2>{props.location.state.routeName} Pre-paid Parking</h2>
+                            <h3>Fill up form below for pre-paid parking reservation.</h3>
+                        </div>
+                        <div className="Modal-form-desc-subtitle Body-text1">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed convallis est. Nam quis tincidunt ex, quis tempus dui. Proin in sodales purus.<br /><br />
+                            <FormPrepaid key="formprepaid1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    function FormPrepaid() {
+
+        const [fullname, setFullname] = useState("");
+        const [email, setEmail] = useState("");
+        const [error, setError] = useState("");
+    
+        function handleChangeName(e){
+            setFullname(e.target.value);
+        }
+    
+        function handleChangeEmail(e){
+            setEmail(e.target.value);
+        }
+    
+        function validateEmail(){
+            const regex = /^[a-z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-z0-9]@[a-z0-9][-\.]{0,1}([a-z][-\.]{0,1})*[a-z0-9]\.[a-z0-9]{1,}([\.\-]{0,1}[a-z]){0,}[a-z0-9]{0,}$/;
+    
+            return regex.test(email);
+        }
+    
+        function submitForm(e){
+            e.preventDefault();
+            if(fullname === "" || email === ""){
+                setError("Please fill all form first");
+            } else if(!validateEmail()){
+                setError("Please enter a valid email");
+            } else {
+                setError("");
+                setGlobalName(fullname);
+                setGlobalEmail(email);
+                setShowModalResult(true);
+                setShowModal(false);
+                window.addEventListener('keydown', onKeyPressedResult);
+            }
+            
+        }
+    
+    
+        return (
+            <div>
+            <form onSubmit={submitForm}>
+                <div className="Input-group">
+                    <div className="Input-label-div">
+                        <label className="Input-label Body-text1">Fullname </label>
+                    </div>
+                    <div className="Input-text-div" >
+                        <input className="Input-text" id="fullname" type="text" name="fullname" onChange={handleChangeName} value={fullname}></input>
+                    </div>
+                </div>
+                <div className="Input-group">
+                    <div className="Input-label-div">
+                        <label className="Input-label Body-text1">Email Address </label>
+                    </div>
+                    <div className="Input-text-div">
+                        <input className="Input-text" id="email" type="text" name="email" onChange={handleChangeEmail} value={email}></input>
+                    </div>
+                </div>
+                <span className="Input-error-text Body-text2">{error}</span><br/>
+                <button className="Button-submit" type="submit">Submit</button>
+            </form>
+            
+            </div>
+    
+        );
+    }
+
+    function ModalResult(){
+        return (
+            <div className='modal-form'>
+                <div className="modal-form-content" >
+                    <span className="close" onClick={handleCloseModal}>&times;</span>
+                    <div className="Modal-form-desc-text">
+                        <div className="Modal-form-desc-title">
+                            <h3>Thank you {globalName} for reserving pre-paid parking service.</h3>
+                        </div>
+                        <div className="Modal-form-desc-subtitle Body-text1">
+                            Please check your email inbox ({globalEmail}) to set up the payment.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    
+    }
+
+   
     return (
         <div className="Routedesc-wrapper">
             <div className="Routedesc-header">
@@ -26,14 +180,14 @@ export function RouteDesc(props){
                 <div className="Routedesc-header-subtitle Body-text1">
                     <b>Enjoy a comfortable and convenient ride to and from the airport with {props.location.state.routeName} service in: {props.location.state.routeList.map((rank, i) => {
                         if(rowLen === i + 1) {
-                            return <span className="Header-subtitle-location">and <a className="Link-to">{rank.locationName}</a></span>;
+                            return <span key="lastLoc" className="Header-subtitle-location">and <a className="Link-to" onClick={handleLocationClick}>{rank.locationName}</a></span>;
                         } else {
-                            return <span className="Header-subtitle-location"><a className="Link-to">{rank.locationName}</a>, </span>;
+                            return <span key={"loc"+i} className="Header-subtitle-location"><a className="Link-to" onClick={handleLocationClick}>{rank.locationName}</a>, </span>;
                         }
                     })}</b>
                 </div>
                 <div className="Routedesc-button-park-reserve">
-                    <button className="Button-blue">
+                    <button className="Button-blue" onClick={handleOpenModal}>
                         Reserve Your Parking Spot Now &nbsp;<FontAwesomeIcon icon={faChevronRight}/>
                     </button>
                 </div>
@@ -57,8 +211,8 @@ export function RouteDesc(props){
                     </div>
                     <div className="Routedesc-body-location">
                         <h3>{props.location.state.routeName} Locations:</h3>
-                        <div className="Routedesc-body-location-list">
-                            {props.location.state.routeList.map(routeDesc => <RouteDescLocation {...routeDesc} />)}
+                        <div className="Routedesc-body-location-list" ref={locationRef}>
+                            {props.location.state.routeList.map(routeDesc => <RouteDescLocation key={routeDesc.key} {...routeDesc}/>)}
                         </div>
                     </div>
                 </div>
@@ -73,8 +227,9 @@ export function RouteDesc(props){
                         <BarMeter carbonMeter={carbonMeter} isWithTooltip={false} />
                     </div>                
                 </div>
-                
             </div>
+            { showModal && <ModalForm key="modalform1" /> }
+            { showModalResult && <ModalResult />}
         </div>
     );
 }

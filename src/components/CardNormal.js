@@ -3,36 +3,6 @@ import {Link} from 'react-router-dom';
 import { BarMeter } from './BarMeter';
 
 export function CardNormal({ title, subtitle, logo, price, duration, barmeter, footerText }) {
-    
-  var className = 'Bar';
-  if(barmeter <= 15){
-      className = 'Bar b15';
-  } else if(barmeter <= 30){
-      className = 'Bar b30';
-  } else if(barmeter <= 50) {
-      className = 'Bar b50';
-  } else if(barmeter <= 65) {
-    className = 'Bar b65';
-  } else if(barmeter <= 85) {
-    className = 'Bar b85';
-  } else {
-    className = 'Bar b100';
-  }
-
-  var leafClass = '';
-    if(barmeter <= 15){
-        leafClass = 'b15';
-    } else if(barmeter <= 30){
-        leafClass = 'b30';
-    } else if(barmeter <= 50) {
-        leafClass = 'b50';
-    } else if(barmeter <= 65) {
-        leafClass = 'b65';
-    } else if(barmeter <= 85) {
-        leafClass = 'b85';
-    } else {
-        leafClass = 'b100';
-    }
 
     const [outlined, setOutlined] = React.useState(false);
     const [showModal, setShowModal] = React.useState(false);
@@ -85,18 +55,21 @@ export function CardNormal({ title, subtitle, logo, price, duration, barmeter, f
                     pictureFile: logo,
                     routeList: [
                         {
+                            key: "loc1",
                             locationName: "Back Bay",
                             locationDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lobortis, urna vitae accumsan ultrices, arcu metus fermentum purus, semper ullamcorper eros mauris et sapien.",
                             isHaveDrivingDirection: false,
                             phoneNumber: "123-456-7890"
                         },
                         {
+                            key: "loc2",
                             locationName: "Braintree",
                             locationDesc: "Nam quis ante a lectus ullamcorper vestibulum id ut eros. Suspendisse potenti.",
                             isHaveDrivingDirection: true,
                             phoneNumber: "123-456-7890"
                         },
                         {
+                            key: "loc3",
                             locationName: "Mayroad",
                             locationDesc: "Nam quis ante a lectus ullamcorper vestibulum id ut eros. Suspendisse potenti.",
                             isHaveDrivingDirection: true,
